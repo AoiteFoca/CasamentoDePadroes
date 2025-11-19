@@ -5,11 +5,11 @@ POPULACAO_SIZE = 200    # Aqui fazemos o set do tamanho da populacao, ou seja: O
 NUM_GERACOES   = 100    # Aqui o set é do numero de geracoes, representando quantas vezes a populacao vai evoluir
 TAXA_MUTACAO   = 0.2    # E por fim a taxa de mutacao, que determinamos a probabilidade de mutacao em um cromossomo (Como tratamos em percentual, o 0.2 equivale a 20%)
 
-# Aqui comeca o calculo da similaridade entre o trecho do texto e o padrao. Essa e a funcao de fitness.
-def calcular_fitness(posicao, padrao, texto):
+# Aqui comeca o calculo da similaridade entre o trecho do texto e o padrao escolhido.
+def calc_padrao(posicao, padrao, texto):
     # Retorna a proporcao de caracteres idênticos entre o padrao e o trecho do texto iniciado em 'posicao'.
     trecho = texto[posicao: posicao + len(padrao)]
-    # Se o trecho for menor que o padrao (alcancou o final do texto), retorna 0 de similaridade
+    # Se o trecho for menor que o padrao (o que de regra não pode acontecer), retorna 0 de similaridade
     if len(trecho) < len(padrao):
         return 0.0
     # Conta quantos caracteres coincidem nas posicoes correspondentes
@@ -73,8 +73,8 @@ def algoritmo_genetico(texto, padrao, tamanho_pop=POPULACAO_SIZE, geracoes=NUM_G
 
     # Loop evolutivo atraves das geracoes
     for gen in range(geracoes):
-        # Calcula aptidao (fitness) de cada individuo da populacao
-        aptidoes = [calcular_fitness(pos, padrao, texto) for pos in populacao]
+        # Calcula aptidao de cada individuo da populacao
+        aptidoes = [calc_padrao(pos, padrao, texto) for pos in populacao]
         # Verifica o melhor individuo da geracao atual
         for pos, apt in zip(populacao, aptidoes):
             if apt > melhor_aptidao:
