@@ -7,7 +7,7 @@ TAXA_MUTACAO   = 0.2    # E por fim a taxa de mutacao, que determinamos a probab
 
 # Aqui comeca o calculo da similaridade entre o trecho do texto e o padrao escolhido.
 def calc_padrao(posicao, padrao, texto): # Funcao Fitness
-    # Retorna a proporcao de caracteres idênticos entre o padrao e o trecho do texto iniciado em 'posicao'.
+    # Retorna a proporcao de caracteres identicos entre o padrao e o trecho do texto iniciado em 'posicao'.
     trecho = texto[posicao: posicao + len(padrao)]
     # Se o trecho for menor que o padrao (o que de regra não pode acontecer), retorna 0 de similaridade
     if len(trecho) < len(padrao):
@@ -102,18 +102,17 @@ def algoritmo_genetico(texto, padrao, tamanho_pop=POPULACAO_SIZE, geracoes=NUM_G
     # Retorna a melhor solucao encontrada (posicao no texto) e a aptidao (similaridade entre padrao e trecho correspondente)
     return melhor_individuo, melhor_aptidao
 
-# Funcao principal para executar o algoritmo
 if __name__ == "__main__":
-    # Leitura do texto completo de "dom_casmurro.txt" (considera encoding UTF-8 para acentuacao)
+    # Leitura do texto completo de "dom_casmurro.txt" (aqui ele vai considerar encoding UTF-8 por causa da acentuacao)
     with open("dom_casmurro.txt", "r", encoding="utf-8") as f:
         texto = f.read()
-    # Lê o padrao de busca fornecido pelo usuario
+    # Le o padrao de busca fornecido pelo usuario
     padrao = input("Digite o padrao de busca: ")
     # Executa o algoritmo genetico com parametros definidos
     posicao, sim = algoritmo_genetico(texto, padrao)
     # Prepara o trecho encontrado (subtexto) para exibir
     trecho_encontrado = texto[posicao: posicao + len(padrao)]
-    # Exibe o resultado: posicao, trecho correspondente e porcentagem de similaridade
+    # Exibe o resultado de posicao, trecho correspondente e porcentagem de similaridade
     porcentagem = sim * 100
     print(f"Melhor posicao encontrada: {posicao}")
     print(f"Trecho correspondente: \"{trecho_encontrado}\"")
