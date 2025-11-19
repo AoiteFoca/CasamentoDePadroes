@@ -139,8 +139,7 @@ Similaridade: 96.43%
 
 ## Conclusão
 
-Este projeto demonstra como Algoritmos Genéticos são adequados para problemas de busca aproximada em textos.  
-Mesmo com uma implementação simples, o método obtém altas taxas de similaridade (>85%) com eficiência.
+Este projeto demonstra como Algoritmos Genéticos são adequados para problemas de busca aproximada em textos, pois mesmo com uma implementação simples, o método consegue obter altas taxas de similaridade (geralmente com percentual maior que 85%) com eficiência.
 
 ---
 
