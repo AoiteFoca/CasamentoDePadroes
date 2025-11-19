@@ -6,7 +6,7 @@ NUM_GERACOES   = 100    # Aqui o set é do numero de geracoes, representando qua
 TAXA_MUTACAO   = 0.2    # E por fim a taxa de mutacao, que determinamos a probabilidade de mutacao em um cromossomo (Como tratamos em percentual, o 0.2 equivale a 20%)
 
 # Aqui comeca o calculo da similaridade entre o trecho do texto e o padrao escolhido.
-def calc_padrao(posicao, padrao, texto):
+def calc_padrao(posicao, padrao, texto): # Funcao Fitness
     # Retorna a proporcao de caracteres idênticos entre o padrao e o trecho do texto iniciado em 'posicao'.
     trecho = texto[posicao: posicao + len(padrao)]
     # Se o trecho for menor que o padrao (o que de regra não pode acontecer), retorna 0 de similaridade
