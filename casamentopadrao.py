@@ -1,9 +1,9 @@
 import random
 # Aqui e onde a gente arruma os Parametros do Algoritmo Genetico
 # Podemos alterar esses valores para ver como afetam o desempenho do algoritmo
-POPULACAO_SIZE = 200    # Aqui fazemos o set do tamanho da populacao, ou seja: O numero de individuos (posicoes no texto) por geracao
-NUM_GERACOES   = 100    # Aqui o set é do numero de geracoes, representando quantas vezes a populacao vai evoluir
-TAXA_MUTACAO   = 0.2    # E por fim a taxa de mutacao, que determinamos a probabilidade de mutacao em um cromossomo (Como tratamos em percentual, o 0.2 equivale a 20%)
+POPULACAO_SIZE = 400 # Aqui fazemos o set do tamanho da populacao, ou seja: O numero de individuos (posicoes no texto) por geracao
+NUM_GERACOES   = 500 # Aqui o set é do numero de geracoes, representando quantas vezes a populacao vai evoluir
+TAXA_MUTACAO   = 0.25 # E por fim a taxa de mutacao, que determinamos a probabilidade de mutacao em um cromossomo (Como tratamos em percentual, o 0.25 equivale a 25%)
 
 # Aqui comeca o calculo da similaridade entre o trecho do texto e o padrao escolhido.
 def calc_padrao(posicao, padrao, texto): # Funcao Fitness
