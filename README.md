@@ -38,7 +38,7 @@ O algoritmo retorna:
 
 ### **1. População**
 ```python
-POPULACAO_SIZE = 200
+POPULACAO_SIZE = 400
 ```
 Escolhido para balancear diversidade e desempenho.
 
@@ -46,7 +46,7 @@ Escolhido para balancear diversidade e desempenho.
 
 ### **2. Número de Gerações**
 ```python
-NUM_GERACOES = 100
+NUM_GERACOES = 500
 ```
 Suficiente para convergência em testes empíricos.
 
@@ -54,7 +54,7 @@ Suficiente para convergência em testes empíricos.
 
 ### **3. Taxa de Mutação**
 ```python
-TAXA_MUTACAO = 0.2
+TAXA_MUTACAO = 0.25
 ```
 Mutação alta ajuda a explorar regiões distantes do texto.
 
@@ -123,7 +123,7 @@ Digite o padrão de busca: A casa em que moro é própria
 4. Resultado esperado:
 ```
 Melhor posição encontrada: 12345
-Trecho correspondente: " casa em que moro é própria!"
+Trecho correspondente: "casa em que moro é própria!"
 Similaridade: 96.43%
 ```
 
