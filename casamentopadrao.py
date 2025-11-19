@@ -60,16 +60,16 @@ def mutacao(cromossomo, max_index, taxa_mutacao):
         return random.randint(0, max_index)
     return cromossomo
 
-# Algoritmo Genetico principal: evolui a populacao e retorna o melhor resultado
+# Essa e a funcao com o AG principal. Focado em evoluir a populacao e retornar o melhor resultado
 def algoritmo_genetico(texto, padrao, tamanho_pop=POPULACAO_SIZE, geracoes=NUM_GERACOES, taxa_mut=TAXA_MUTACAO):
-    # Determina o indice maximo inicial (ultima posicao inicial possivel para o padrao no texto)
+    # Determina o indice maximo inicial (que seria a ultima posicao inicial possivel para o padrao no texto)
     max_index = len(texto) - len(padrao)
     if max_index < 0:
         raise ValueError("O padrao e maior do que o texto fornecido.")
-    # Geracao inicial da populacao: posicoes aleatorias no texto
+    # Geracao inicial da populacao com posicoes aleatorias no texto
     populacao = [random.randint(0, max_index) for _ in range(tamanho_pop)]
-    melhor_individuo = None   # melhor posicao encontrada
-    melhor_aptidao = 0.0      # melhor aptidao (similaridade) encontrada
+    melhor_individuo = None # melhor posicao encontrada
+    melhor_aptidao = 0.0 # melhor aptidao (similaridade) encontrada
 
     # Loop evolutivo atraves das geracoes
     for gen in range(geracoes):
@@ -80,7 +80,7 @@ def algoritmo_genetico(texto, padrao, tamanho_pop=POPULACAO_SIZE, geracoes=NUM_G
             if apt > melhor_aptidao:
                 melhor_aptidao = apt
                 melhor_individuo = pos
-        # Se atingiu 100% de similaridade, pode encerrar cedo (padrao encontrado exato)
+        # Se atingiu 100% de similaridade, pode encerrar antes (porque isso significa que o padrao exato foi encontrado no texto)
         if melhor_aptidao == 1.0:
             break
 
@@ -99,7 +99,7 @@ def algoritmo_genetico(texto, padrao, tamanho_pop=POPULACAO_SIZE, geracoes=NUM_G
         # Substitui a populacao antiga pela nova
         populacao = nova_populacao
 
-    # Retorna a melhor solucao encontrada (posicao) e a aptidao (similaridade) correspondente
+    # Retorna a melhor solucao encontrada (posicao no texto) e a aptidao (similaridade entre padrao e trecho correspondente)
     return melhor_individuo, melhor_aptidao
 
 # Funcao principal para executar o algoritmo
