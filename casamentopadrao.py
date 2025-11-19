@@ -20,9 +20,9 @@ def calc_padrao(posicao, padrao, texto): # Funcao Fitness
     # Similaridade em percentual (0.0 a 1.0)
     return coincidencias / len(padrao)
 
-# Metodo de selecao: Torneio
+# Pegamos o metodo de selecao de torneio
 def selecionar_pai_torneio(populacao, aptidoes, k=3):
-    # Seleciona um individuo da populacao via torneio.
+    # Seleciona um individuo da populacao com modo de torneio.
     # Escolhe 'k' indices aleatorios da populacao e retorna o individuo de maior aptidao.
     # Seleciona k individuos aleatoriamente
     candidatos = random.sample(range(len(populacao)), k)
@@ -32,12 +32,12 @@ def selecionar_pai_torneio(populacao, aptidoes, k=3):
             melhor = indice
     return populacao[melhor]
 
-# Operador de crossover: um ponto
+# Operador de crossover
 def crossover_um_ponto(pai1, pai2, max_index):
-    # Realiza crossover de um ponto entre dois pais (posicoes).
-    # Representa os indices em binario e combina partes de cada um.
+    # Realiza crossover de um ponto entre dois pais (que seriam posicoes).
+    # Representa os indices em binario e combina as partes de cada um.
     if max_index <= 0:
-        return 0  # Caso trivial: texto menor ou igual ao tamanho do padrao
+        return 0  # Casos comuns onde o texto e menor ou igual ao tamanho do padrao
     # Define o comprimento em bits necessario para representar o maior indice
     bits = max_index.bit_length()
     # Escolhe aleatoriamente um ponto de corte (entre 1 e bits-1)
@@ -52,9 +52,9 @@ def crossover_um_ponto(pai1, pai2, max_index):
         filho = filho % (max_index + 1)
     return filho
 
-# Operador de mutacao
+# Funcao do operador de mutacao
 def mutacao(cromossomo, max_index, taxa_mutacao):
-    # Aplica mutacao ao cromossomo (posicao) com a probabilidade dada.
+    # Aplica mutacao ao cromossomo (que e a posicao) com a probabilidade recebida.
     # A mutacao consiste em substituir por uma nova posicao aleatoria valida.
     if random.random() < taxa_mutacao:
         return random.randint(0, max_index)
