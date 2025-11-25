@@ -3,7 +3,7 @@
 </p>
 
 ## Situação do Projeto
-![Status](https://img.shields.io/badge/Status-Em%20Andamento-blue)
+![Status](https://img.shields.io/badge/Status-Finalizado-green)
 
 ![Etapa](https://img.shields.io/badge/Etapa-N3-green)
 
